@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+
+  nginx:
+    image: danielvdspuy/alpine-lep
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./app:/var/www/
+    ports:
+      - "80:80"
+    depends_on:
+      - mariadb
+    environment:
+      - CRAFT_DB_SERVER=mariadb
+      - CRAFT_DB_USER=root
+      - CRAFT_DB_PASSWORD=password
+      - CRAFT_DB_NAME=craft
+      - CRAFT_DB_TABLE_PREFIX=craft_
+
+  mariadb:
+    image: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=craft
+    volumes:
+      - ./mariadb-data:/var/lib/mysql
+      
+#  phpmyadmin:
+#    image: phpmyadmin/phpmyadmin
+#    restart: always
+#    links:
+#      - mariadb:mysql
+#    ports:
+#      - "8181:80"
+#    environment:
+#      - MYSQL_USERNAME=root
+#      - MYSQL_ROOT_PASSWORD=password
+#      - MYSQL_DATABASE=craft
+#      - PMA_HOST=mariadb
+#    depends_on:
+#      - "mariadb"
