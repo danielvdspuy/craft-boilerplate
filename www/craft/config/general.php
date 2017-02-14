@@ -22,7 +22,7 @@ return array(
   'x.x.x.x' => array(
     'devMode' => false,
     'environmentVariables' => array(
-      'basePath' => '/var/www/public',
+      'basePath' => '/var/www/dist',
       'baseUrl' => 'http://x.x.x.x',
     ),
   ),
