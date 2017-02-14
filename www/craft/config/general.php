@@ -12,7 +12,6 @@ return array(
   // Development environment
   'localhost' => array(
     'devMode' => false,
-    'testToEmailAddress' => 'daniel@dashboardmedia.co.uk',
     'environmentVariables' => array(
       'basePath' => '/users/daniel/Sites/dashboardmedia.co.uk/www/dist/',
       'baseUrl' => 'http://localhost',
