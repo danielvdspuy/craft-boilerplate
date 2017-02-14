@@ -6,7 +6,7 @@ services:
     image: danielvdspuy/alpine-lep
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-      - ./app:/var/www/
+      - ./www:/var/www/
     ports:
       - "80:80"
     depends_on:
