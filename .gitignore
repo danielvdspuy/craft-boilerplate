@@ -137,3 +137,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/macos,git,stdlib,craftcms,node,bower,windows,linux
+
+mariadb-data
+/www/dist
